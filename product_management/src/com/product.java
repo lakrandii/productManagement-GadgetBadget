@@ -52,16 +52,15 @@ public class product {
 	      // execute the statement3
 	      preparedStmt.execute(); 
 	      con.close(); 
-	      output = "Inserted successfully"; 
-	   } 
-	   
-	   catch (Exception e)
-	   { 
-	    output = "Error while inserting the item."; 
-	    System.err.println(e.getMessage()); 
-	   } 
-	   
-	 return output; 
+	      String newproduct = readproduct(); 
+			 output = "{\"status\":\"success\", \"data\": \"" +  newproduct + "\"}"; 
+			 } 
+			 catch (Exception e) 
+			 { 
+				 output = "{\"status\":\"error\", \"data\":  \"Error while inserting the product.\"}"; 
+				 System.err.println(e.getMessage()); 
+				 } 
+				 return output; 
 	 }
 	
 	public String readproduct()
@@ -111,7 +110,7 @@ public class product {
 	 } 
 	    
 	  catch (Exception e)  { 
-	     output = "Error while reading the items."; 
+	     output = "Error while reading the products."; 
 	     System.err.println(e.getMessage()); 
 	 } 
 	 return output; 
@@ -142,14 +141,14 @@ public class product {
 	         // execute the statement
 	         preparedStmt.execute(); 
 	         con.close(); 
-	         output = "Updated successfully"; 
-	    } 
-	    
-	    catch (Exception e) 
-	    { 
-	        output = "Error while updating the products."; 
-	        System.err.println(e.getMessage()); 
-	    } 
+	         String newproduct = readproduct(); 
+			 output = "{\"status\":\"success\", \"data\": \"" +  newproduct + "\"}"; 
+			 } 
+			 catch (Exception e) 
+			 { 
+				 output = "{\"status\":\"error\", \"data\":  \"Error while updating the product.\"}"; 
+				 System.err.println(e.getMessage()); 
+				 } 
 	 return output; 
 	}
 	
@@ -171,13 +170,14 @@ public class product {
 	          // execute the statement
 	          preparedStmt.execute(); 
 	          con.close(); 
-	          output = "Deleted successfully"; 
-	     } 
-	     catch (Exception e) 
-	     { 
-	         output = "Error while deleting the item."; 
-	         System.err.println(e.getMessage()); 
-	     }
+	          String newproduct = readproduct(); 
+				 output = "{\"status\":\"success\", \"data\": \"" +  newproduct + "\"}"; 
+				 } 
+				 catch (Exception e) 
+				 { 
+					 output = "{\"status\":\"error\", \"data\":  \"Error while deleting the product.\"}"; 
+							 System.err.println(e.getMessage()); 
+							 } 
 	      
 	  return output; 
    } 
