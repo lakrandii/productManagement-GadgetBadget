@@ -35,7 +35,7 @@ $(document).on("click", "#btnSave", function(event)
 		});
 
 
-function onClientSaveComplete(response, status)
+function onproductSaveComplete(response, status)
 { 
 if (status == "success") 
  { 
@@ -99,7 +99,7 @@ $(document).on("click", ".btnRemove", function(event)
 
 
 
-function onClientDeleteComplete(response, status)
+function onproductDeleteComplete(response, status)
 { 
 if (status == "success") 
  { 
