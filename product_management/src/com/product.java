@@ -91,9 +91,8 @@ public class product {
 
 
 				// Add into the html table
-				output += "<tr><td><input id='hidproductIDUpdate' name='hidproductIDUpdate' type='hidden' value='" + product_ID + "'>"
-						  + "</td>";
-				output += "<tr><td>" + product_ID + "</td>";
+				output += "<tr><td><input id='hidIDUpdate' name='hidIDUpdate' type='hidden' value='" + product_ID + "'>"+product_ID+ "</td>";
+				//output += "<td>" + product_ID + "</td>";
 				output += "<td>" +product_Name+ "</td>";
 				output += "<td>" + Category+ "</td>";
 				output += "<td>" + Serial_No + "</td>";
@@ -102,10 +101,10 @@ public class product {
 
 
 				// buttons
-				output += "<td><input name='btnUpdate' type='button' value='Update' class=' btnUpdate btn btn-secondary'></td> <td><form method='post' action='product.jsp'> "
-						+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-						 +"<input name='hidproductIDDelete' type='hidden'"
-						 +"value='" + product_ID + "'>" + "</form></td></tr>";
+				 output += "<td><input name='btnUpdate' type='button' value='Update' "
+						 + "class='btnUpdate btn btn-secondary' data-product_ID='" + product_ID + "'></td>"
+						 + "<td><input name='btnRemove' type='button' value='Remove' "
+						 + "class='btnRemove btn btn-danger' data-product_ID='" + product_ID + "'></td></tr>"; 
 			}
 	   con.close(); 
 	      // Complete the html table

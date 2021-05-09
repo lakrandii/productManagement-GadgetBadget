@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,7 +16,7 @@ import java.util.Scanner;
 @WebServlet("/productAPI")
 public class productAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Object productObj;
+	product productObj = new product();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,13 +41,15 @@ public class productAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		String output = ((product) productObj).insertproduct(request.getParameter("product_ID"), 
-				request.getParameter("product_Name"), 
-				request.getParameter("Category"), 
-				request.getParameter("Serial_No"), 
-		        request.getParameter("Price"), 
-		        request.getParameter("Description"));
-		        response.getWriter().write(output);	         
+		String output = productObj.insertproduct(request.getParameter("product_ID"),
+				 request.getParameter("product_Name"),
+				request.getParameter("Category"),
+				request.getParameter("Serial_No"),
+				request.getParameter("Price"),
+				request.getParameter("Description"));
+		 
+		        System.out.println(output);
+		        response.getWriter().write(output);	            
 	}
 
 	/**
@@ -57,7 +58,7 @@ public class productAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
                 Map paras = getParasMap(request); 
-		        String output =((product) productObj).updateproduct(paras.get("product_ID").toString(), 
+		        String output = productObj.updateproduct(paras.get("product_ID").toString(), 
 		        paras.get("product_Name").toString(), 
 		        paras.get("Category").toString(), 
 		        paras.get("Serial_No").toString(), 
@@ -95,7 +96,7 @@ public class productAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request); 
 		 
-		String output = ((product) productObj).deleteproduct(paras.get("product_ID").toString()); 
+		String output =  productObj.deleteproduct(paras.get("product_ID").toString());
 		response.getWriter().write(output);
 	}
 
