@@ -131,7 +131,7 @@ public class product {
 	        	 return "Error while connecting to the database for updating.";
 	         } 
 	         // create a prepared statement
-	         String query = "UPDATE product SET product_Name=?,Category=?,Serial_No=?,Price=?,Description=?  WHERE id=?"; 
+	         String query = "UPDATE product SET product_ID=?,product_Name=?,Category=?,Serial_No=?,Price=?,Description=?  WHERE id=?"; 
 	         PreparedStatement preparedStmt = con.prepareStatement(query); 
 	         // binding values
              preparedStmt.setString(1, product_ID); 
@@ -140,7 +140,7 @@ public class product {
 		     preparedStmt.setString(4, Serial_No); 
 		     preparedStmt.setDouble(5, Double.parseDouble(Price)); 
 		     preparedStmt.setString(6, Description); 
-		     //preparedStmt.setInt(7, Integer.parseInt(id));
+		     preparedStmt.setInt(7, Integer.parseInt(id));
 		     
 	         // execute the statement
 	         preparedStmt.execute(); 

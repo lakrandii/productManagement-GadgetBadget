@@ -7,15 +7,18 @@ $(document).on("click", "#btnSave", function(event)
  $("#alertSuccess").hide();
  $("#alertError").text("");
  $("#alertError").hide();
-// Form validation-------------------
-/*var status = validateForm();
-if (status != true)
- {
- $("#alertError").text(status);
- $("#alertError").show();
- return;
- }*/
+ 
+//Form validation-------------------
+ /*var status = validateProductForm();
+ if (status != true)
+  {
+  $("#alertError").text(status);
+  $("#alertError").show();
+  return;
+  } 
+ */
 // If valid------------------------
+ 
 var type = ($("#hidIDSave").val() == "") ?"POST" : "PUT" ; 
  $.ajax(
  {
@@ -113,7 +116,8 @@ if (status == "success")
  }
 }
 
-function validateForm() {
+//client model
+function validateProductForm(){
 	
 	if ($("#product_ID").val().trim() == "") {
 		return "Insert product NO";
@@ -129,7 +133,6 @@ function validateForm() {
     if ($("#Seial_No").val().trim() == "") {
 		return "Insert Serial No.";
 	}
-	
 	
 	if ($("#Price").val().trim() == "") {
 		return "Insert price.";
