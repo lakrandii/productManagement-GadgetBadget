@@ -48,7 +48,6 @@ public class productAPI extends HttpServlet {
 				request.getParameter("Price"),
 				request.getParameter("Description"));
 		 
-		        System.out.println(output);
 		        response.getWriter().write(output);	            
 	}
 
@@ -58,12 +57,14 @@ public class productAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
                 Map paras = getParasMap(request); 
-		        String output = productObj.updateproduct(paras.get("product_ID").toString(), 
+		        String output = productObj.updateproduct(paras.get("hidIDSave").toString(), 
+		        paras.get("product_ID").toString(), 
 		        paras.get("product_Name").toString(), 
 		        paras.get("Category").toString(), 
 		        paras.get("Serial_No").toString(), 
 		        paras.get("Price").toString(),
 		        paras.get("Description").toString()); 
+		        
 		        response.getWriter().write(output); 
 	}
 
@@ -96,7 +97,7 @@ public class productAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request); 
 		 
-		String output =  productObj.deleteproduct(paras.get("product_ID").toString());
+		String output =  productObj.deleteproduct(paras.get("id").toString());
 		response.getWriter().write(output);
 	}
 
